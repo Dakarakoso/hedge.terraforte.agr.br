@@ -1,3 +1,5 @@
+import Script from "next/script";
+
 const Home = () => {
   return (
     <main
@@ -15,10 +17,10 @@ const Home = () => {
       <span stye={{ color: "#1e3823" }}>
         Solução para controle rollover para contratos futuros
       </span>
-      <script
+      <Script
         src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
         type="module"
-      ></script>
+      ></Script>
 
       <dotlottie-player
         src="https://lottie.host/64b0fb5e-09f1-4110-b03f-58380b49e44d/F8HrF5vOfV.json"
