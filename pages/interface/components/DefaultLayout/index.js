@@ -6,7 +6,6 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import AppNavbar from "../AppNavbar/index.js";
 import Header from "../Header/index.js";
-import MainGrid from "../MainGrid/index.js";
 import SideMenu from "../SideMenu/index.js";
 import AppTheme from "../../theme/shared-theme/AppTheme.js";
 import {
@@ -15,6 +14,7 @@ import {
   datePickersCustomizations,
   treeViewCustomizations,
 } from "../../theme/customizations";
+import WelcomeCard from "../Welcome/index.js";
 
 const xThemeComponents = {
   ...chartsCustomizations,
@@ -51,8 +51,8 @@ export default function Dashboard({ children, props }) {
             }}
           >
             <Header />
+            <WelcomeCard />
             {children}
-            <MainGrid />
           </Stack>
         </Box>
       </Box>

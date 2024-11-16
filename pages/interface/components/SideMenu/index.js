@@ -8,7 +8,6 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import SelectContent from "../SelectContent/index.js";
 import MenuContent from "../MenuContent/index.js";
-import CardAlert from "../CardAlert/index.js";
 import OptionsMenu from "../OptionsMenu/index.js";
 
 const drawerWidth = 240;
@@ -35,18 +34,6 @@ export default function SideMenu() {
         },
       }}
     >
-      <Box
-        sx={{
-          display: "flex",
-          mt: "calc(var(--template-frame-height, 0px) + 4px)",
-          p: 1.5,
-        }}
-      >
-        <SelectContent />
-      </Box>
-      <Divider />
-      <MenuContent />
-      <CardAlert />
       <Stack
         direction="row"
         sx={{
@@ -59,7 +46,7 @@ export default function SideMenu() {
       >
         <Avatar
           sizes="small"
-          alt="Riley Carter"
+          alt="Willian"
           src="/static/images/avatar/7.jpg"
           sx={{ width: 36, height: 36 }}
         />
@@ -68,13 +55,27 @@ export default function SideMenu() {
             variant="body2"
             sx={{ fontWeight: 500, lineHeight: "16px" }}
           >
-            Riley Carter
+            Willian Maruyama
           </Typography>
           <Typography variant="caption" sx={{ color: "text.secondary" }}>
-            riley@email.com
+            Willian@terraforte.agr.br
           </Typography>
         </Box>
         <OptionsMenu />
+      </Stack>
+      <Divider />
+      <MenuContent />
+      <Stack
+        direction="row"
+        sx={{
+          p: 2,
+          gap: 1,
+          alignItems: "center",
+          borderTop: "1px solid",
+          borderColor: "divider",
+        }}
+      >
+        <SelectContent />
       </Stack>
     </Drawer>
   );

@@ -1,13 +1,11 @@
 import React from "react";
 import DefaultLayout from "../interface/components/DefaultLayout/index.js";
-import StatusPage from "../interface/components/StatusPage/index.js";
+import ContactCard from "pages/interface/components/Contact/index.js";
 
-function Page() {
+export default function ContactPage() {
   return (
     <DefaultLayout>
-      <StatusPage />
+      <ContactCard />
     </DefaultLayout>
   );
 }
-
-export default Page;

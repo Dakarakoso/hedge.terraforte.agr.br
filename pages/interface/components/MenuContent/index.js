@@ -6,7 +6,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Stack from "@mui/material/Stack";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
-import AnalyticsRoundedIcon from "@mui/icons-material/AnalyticsRounded";
+import CategoryIcon from "@mui/icons-material/Category";
 import PeopleRoundedIcon from "@mui/icons-material/PeopleRounded";
 import AssignmentRoundedIcon from "@mui/icons-material/AssignmentRounded";
 import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
@@ -15,9 +15,9 @@ import HelpRoundedIcon from "@mui/icons-material/HelpRounded";
 
 const mainListItems = [
   { text: "Home", icon: <HomeRoundedIcon /> },
-  { text: "Analytics", icon: <AnalyticsRoundedIcon /> },
-  { text: "Clients", icon: <PeopleRoundedIcon /> },
-  { text: "Tasks", icon: <AssignmentRoundedIcon /> },
+  { text: "Produtos", icon: <CategoryIcon /> },
+  { text: "Clientes", icon: <PeopleRoundedIcon /> },
+  { text: "Contratos", icon: <AssignmentRoundedIcon /> },
 ];
 
 const secondaryListItems = [
