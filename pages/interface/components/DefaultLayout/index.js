@@ -1,78 +1,61 @@
-import {
-  Box,
-  Container,
-  CssBaseline,
-  Toolbar,
-  AppBar,
-  Button,
-  Typography,
-  createTheme,
-  ThemeProvider,
-} from "@mui/material";
-import Footer from "../Footer/index.js";
-import CustomHead from "../Head/index.js";
+import * as React from "react";
+
+import { alpha } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
+import AppNavbar from "../AppNavbar/index.js";
 import Header from "../Header/index.js";
-import NavbarLeft from "../Navbar/index.js";
+import MainGrid from "../MainGrid/index.js";
+import SideMenu from "../SideMenu/index.js";
+import AppTheme from "../../theme/shared-theme/AppTheme.js";
+import {
+  chartsCustomizations,
+  dataGridCustomizations,
+  datePickersCustomizations,
+  treeViewCustomizations,
+} from "../../theme/customizations";
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: "#4caf50", // Green color as primary color
-    },
-    secondary: {
-      main: "#81c784", // Lighter green as secondary color
-    },
-    background: {
-      default: "#e8f5e9", // Light green background
-    },
-    text: {
-      primary: "#1b5e20", // Darker green text
-    },
-  },
-});
+const xThemeComponents = {
+  ...chartsCustomizations,
+  ...dataGridCustomizations,
+  ...datePickersCustomizations,
+  ...treeViewCustomizations,
+};
 
-export default function DefaultLayout({
-  children,
-  containerWidth = "lg",
-  metadata,
-}) {
+export default function Dashboard({ children, props }) {
   return (
-    <ThemeProvider theme={theme}>
-      <NavbarLeft />
-      <Box sx={{ minHeight: "100vh", backgroundColor: "background.default" }}>
-        {/* Metadata Head */}
-        {metadata && <CustomHead metadata={metadata} />}
-
-        <Header />
-        {/* Main Content */}
-        <Container
-          maxWidth={containerWidth}
-          sx={{
-            marginTop: 8,
-            padding: [2, null, null, 4],
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
+    <AppTheme {...props} themeComponents={xThemeComponents}>
+      <CssBaseline enableColorScheme />
+      <Box sx={{ display: "flex" }}>
+        <SideMenu />
+        <AppNavbar />
+        {/* Main content */}
+        <Box
+          component="main"
+          sx={(theme) => ({
+            flexGrow: 1,
+            backgroundColor: theme.vars
+              ? `rgba(${theme.vars.palette.background.defaultChannel} / 1)`
+              : alpha(theme.palette.background.default, 1),
+            overflow: "auto",
+          })}
         >
-          {children}
-        </Container>
-
-        {/* Footer */}
-        <Footer
-          sx={{
-            paddingX: [2, null, null, 4],
-            paddingTop: 3,
-            marginTop: 2,
-          }}
-        />
-
-        {/* Scroll to Top Button */}
-        <Box sx={{ position: "fixed", bottom: 16, right: 16 }}></Box>
-
-        {/* Ensure basic CSS styles are applied globally */}
-        <CssBaseline />
+          <Stack
+            spacing={2}
+            sx={{
+              alignItems: "center",
+              mx: 3,
+              pb: 5,
+              mt: { xs: 8, md: 0 },
+            }}
+          >
+            <Header />
+            {children}
+            <MainGrid />
+          </Stack>
+        </Box>
       </Box>
-    </ThemeProvider>
+    </AppTheme>
   );
 }
